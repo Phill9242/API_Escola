@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+{% load bootstrap %}
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta charset="UTF-8" />
     <title>Cadastro</title>
 	{% load static %}
@@ -14,34 +16,38 @@
     <div id="modal-aluno" class="hide">
         <div id="modal">
             <div class="modal-header">
-                <div> Cadastro de Aluno </div>
+            <h2> Cadastro de Aluno </h2>
             </div>
             <div class="modal-body">
                 <form action="." method="post">
-                {{ formAluno.as_p }}
-                <button type="submit">Cadastrar Aluno</button>
+                    {{ formAluno|bootstrap }}
+                    <div id="botoes-rodape-modal">
+                    <button id="fechar-modal-aluno" class="botao-fechar botao-rodape">Fechar</button>
+                    <button type="submit" class="botao-cadastrar botao-rodape">Cadastrar Aluno</button>
+                    </div>
                 </form>
-                <button id="fechar-modal-aluno">Fechar</button>
             </div>
         </div>
     </div>
-    <button id="abrir-modal-professor" class="abrir-modal">Cadastrar professor</button>
+    <button id="abrir-modal-professor" class="abrir-modal ">Cadastrar professor</button>
     <div id="fade-professor" class="hide"></div>
     <div id="modal-professor" class="hide">
         <div id="modal">
             <div class="modal-header">
-                <div> Cadastro de professor </div>
+            <h2> Cadastro de professor </h2>
             </div>
             <div class="modal-body">
                 <form action="." method="post">
-                    {{ formProfessor.as_p}}
-                    <button type="submit">Cadastrar Professor</button> 
+                    {{ formProfessor|bootstrap }}
+                    <div id="botoes-rodape-modal">
+                    <button id="fechar-modal-professor" class="botao-fechar botao-rodape">Fechar</button>
+                    <button type="submit" class="botao-cadastrar botao-rodape">Cadastrar Professor</button> 
+                    </div>
                 </form>
-                <button id="fechar-modal-professor">Fechar</button>
             </div>
         </div>
     </div>
-	<button id="abrir-modal-curso" class="abrir-modal">Cadastrar curso</button>
+    <button id="abrir-modal-curso" class="abrir-modal">Cadastrar curso</button>
     <div id="fade-curso" class="hide"></div>
     <div id="modal-curso" class="hide">
         <div id="modal">
@@ -50,10 +56,12 @@
             </div>
             <div class="modal-body">
                 <form action="." method="post">
-                    {{ formCurso.as_p}}
-                    <button type="submit">Cadastrar curso</button> 
+                    {{ formCurso|bootstrap}}
+                    <div id="botoes-rodape-modal">
+                        <button id="fechar-modal-curso" class="botao-fechar botao-rodape">Fechar</button>
+                        <button type="submit" class="botao-cadastrar botao-rodape">Cadastrar curso</button>
+                    </div> 
                 </form>
-                <button id="fechar-modal-curso">Fechar</button>
             </div>
         </div>
     </div>

@@ -23,6 +23,37 @@ button{
     font-size: 1rem;
 }
 
+.botao-fechar{
+    padding: .6rem 1.2rem;
+    background-color:rgba(220, 24, 50, 0.999);
+    color:rgb(255, 255, 255);
+    border: none;
+    border-radius: .25rem;
+    cursor:pointer;
+    opacity: .85;
+    font-size: 1rem;
+}
+
+.botao-cadastrar{
+    padding: .6rem 1.2rem;
+    background-color:rgba(3, 152, 43, 0.999);
+    color:rgb(255, 255, 255);
+    border: none;
+    border-radius: .25rem;
+    cursor:pointer;
+    opacity: .85;
+    font-size: 1rem;
+}
+
+#botoes-rodape-modal {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.botao-rodape {
+    margin-left: 10px;
+}
+
 button:hover{
     opacity: 1;
 }
@@ -54,19 +85,18 @@ button:hover{
     z-index: 5;
 }
 
-#modal{
-    position:fixed;
-    left:50%;
+#modal {
+    position: fixed;
+    left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
     background-color: rgb(255, 255, 255);
-    width: 700px;
-    max-width: 700px;
+    width: 90%;
     padding: 1.2rem;
     border-radius: .25rem;
-}
-
+  }
+  
 .modal-header{
     display: flex;
     align-items: center;
@@ -75,9 +105,11 @@ button:hover{
     padding-bottom: 1rem;
 }
 
-.modal-body{
-    margin-bottom: 1rem;
-}
+.modal-body {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  
 
 #fade-aluno.hide, #modal-aluno.hide, 
 #fade-professor.hide, #modal-professor.hide,
