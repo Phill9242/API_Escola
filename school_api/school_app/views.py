@@ -1,9 +1,35 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic.list import ListView
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .forms import formAluno, formProfessor, formCurso
 from .models import Aluno, Curso, Professor
 
+@csrf_exempt
+def listar_alunos(request):
+    alunos = Aluno.objects.all()
+    return render(request, 'listar_alunos.html', {'alunos': alunos})
+
+class ListarAlunosView(ListView):
+    model = Aluno
+    template_name = 'listar_alunos.html'
+    context_object_name = 'alunos'
+
+    def get_queryset(self):
+        return Aluno.objects.all().values('nome', 'sobrenome', 'dataNascimento')
+
+def listar_cursos(request):
+    cursos = Curso.objects.all()
+    return render(request, 'listar_cursos.html', {'cursos': cursos})
+
+@csrf_exempt
+def listar_professores(request):
+    professores = Professor.objects.all()
+    return render(request, 'listar_professores.html', {'professores': professores})
+
+@csrf_exempt
+def buscaGeral(request):
+       return render(request, 'busca.html')
 
 @csrf_exempt
 def cadastroHTML(request):
