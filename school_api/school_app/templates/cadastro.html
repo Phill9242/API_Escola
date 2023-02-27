@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cadastro</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+	<script src="{% static 'js/cadastro.js' %}" defer></script>
+  </head>
+  <body>
+    <h1>Cadastro</h1>
+    <button id="abrir-modal-aluno" class="abrir-modal">Cadastrar Aluno</button>
+    <div id="fade-aluno" class="hide"></div>
+    <div id="modal-aluno" class="hide">
+        <div id="modal">
+            <div class="modal-header">
+                <div> Cadastro de Aluno </div>
+            </div>
+            <div class="modal-body">
+                <form action="." method="post">
+                {{ formAluno.as_p }}
+                <button type="submit">Cadastrar Aluno</button>
+                </form>
+                <button id="fechar-modal-aluno">Fechar</button>
+            </div>
+        </div>
+    </div>
+    <button id="abrir-modal-professor" class="abrir-modal">Cadastrar professor</button>
+    <div id="fade-professor" class="hide"></div>
+    <div id="modal-professor" class="hide">
+        <div id="modal">
+            <div class="modal-header">
+                <div> Cadastro de professor </div>
+            </div>
+            <div class="modal-body">
+                <form action="." method="post">
+                    {{ formProfessor.as_p}}
+                    <button type="submit">Cadastrar Professor</button> 
+                </form>
+                <button id="fechar-modal-professor">Fechar</button>
+            </div>
+        </div>
+    </div>
+	<button id="abrir-modal-curso" class="abrir-modal">Cadastrar curso</button>
+    <div id="fade-curso" class="hide"></div>
+    <div id="modal-curso" class="hide">
+        <div id="modal">
+            <div class="modal-header">
+                <div> Cadastro de curso </div>
+            </div>
+            <div class="modal-body">
+                <form action="." method="post">
+                    {{ formCurso.as_p}}
+                    <button type="submit">Cadastrar curso</button> 
+                </form>
+                <button id="fechar-modal-curso">Fechar</button>
+            </div>
+        </div>
+    </div>
+   </body>
+</html>
