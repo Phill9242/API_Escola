@@ -15,9 +15,12 @@
         <div class="row align-items-center">
             <div class="col-md-8">
               <span class="fw-bold nome">{{ professor.nome }} {{ professor.sobrenome }}</span><br>
-              <medium>Data de Nascimento: {{ professor.dataNascimento }}</medium><br>
-              <Medium> Endereço : {{professor.UF}} {{professor.cidade}} {{professor.endereco_logradouro}} {{professor.endereco_numero}}</Medium> <br>
-              <medium>Data de Contratação: {{ professor.dataContratacao }}</medium><br> 
+              <medium>
+                CPF: {{ professor.cpf }}  |  Data de Nascimento: {{professor.dataNascimento}} <br><br>
+                Telefone: {{professor.telefone}} |  E-mail: {{professor.email}} <br>
+                Endereço:  {{professor.cidade}}-{{professor.UF}} | {{professor.endereco_logradouro}}, {{professor.endereco_complemento}} <br>
+                Data de Contratação: {{professor.dataContratacao}} |  Regime de Contratação: {{professor.regimeContratacao}}
+            </medium>
             </div>
             <div class="col-md-4 text-end">
               <a href="{% url 'editar_professor' professor.id %}" class="btn btn-primary btn-sm">
@@ -29,6 +32,7 @@
             </div>
         </div>
       </form>
+      <hr>
   </div>
       {% empty %}
   <div class="col-12">
