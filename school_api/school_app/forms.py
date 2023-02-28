@@ -3,7 +3,7 @@ from .models import Curso, Aluno, Professor
 from django.core.exceptions import ValidationError
 import re
 
-def validate_cpf(value):
+def validar_cpf(value):
     if not re.match(r'^\d{3}\.\d{3}\.\d{3}-\d{2}$', value):
         raise ValidationError('CPF inválido.')
 
@@ -23,7 +23,9 @@ class formAluno(forms.Form):
     dataNascimento = forms.DateField(required=True, widget=forms.TextInput(attrs={'placeholder': 'DD/MM/AAAA'}),  label='Data de Nascimento',     error_messages={
         'invalid': 'Por favor, insira uma data de nascimento válida no formato DD/MM/AAAA.'
     })
-    cpf = forms.CharField(validators=[validate_cpf], required=True, widget=forms.TextInput(attrs={'placeholder': '000.000.000-00'}),  label='CPF')
+    cpf = forms.CharField(validators=[validar_cpf], required=True, widget=forms.TextInput(attrs={'placeholder': '000.000.000-00'}),  label='CPF', error_messages={
+        'duplicate': 'CPF Já Cadastrado!'
+    })
     email = forms.EmailField(label='E-Mail')
     telefone = forms.CharField(max_length=14, required=True, widget=forms.TextInput(attrs={'placeholder': '(00)0000-0000'}),  label='Telefone')
     UF = forms.CharField(max_length=2, label='Unidade Federativa (UF)')
@@ -42,7 +44,9 @@ class formProfessor(forms.Form):
     dataNascimento = forms.DateField(required=True, widget=forms.TextInput(attrs={'placeholder': 'DD/MM/AAAA'}),  label='Data de Nascimento', error_messages={
         'invalid': 'Por favor, insira uma data de nascimento válida no formato DD/MM/AAAA.'
     })
-    cpf = forms.CharField(validators=[validate_cpf], required=True, widget=forms.TextInput(attrs={'placeholder': '000.000.000-00'}),  label='CPF')
+    cpf = forms.CharField(validators=[validar_cpf], required=True, widget=forms.TextInput(attrs={'placeholder': '000.000.000-00'}),  label='CPF', error_messages={
+        'duplicate': 'CPF Já Cadastrado!'
+    })
     email = forms.EmailField(label='E-Mail')
     telefone = forms.CharField(max_length=14, required=True, widget=forms.TextInput(attrs={'placeholder': '(00)0000-0000'}),  label='Telefone')
     UF = forms.CharField(max_length=2, label='Unidade Federativa (UF)')
