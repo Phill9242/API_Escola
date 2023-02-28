@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block extra_head %}
+    {% load static %}   
+    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+    <script src="{% static 'js/cadastro.js' %}" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+{% endblock %}
+{% block content %}
+{% if messages %}
+    <div class="alert alert-warning">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+{% endif %}
+
+    <div class="row justify-content-around align-items-center">
+        
+        <div class="col-md-3 coluna ">
+            <div class="titulo-coluna"> <span>Aluno</span> </div>           
+            <div class="centralizar-botao">
+            <button id="abrir-modal-aluno" class="btn btn-primary">Cadastrar</button>            
+            <button class="btn btn-primary" onclick="location.href='{% url 'listar_alunos' %}'">Consultar</button>
+            </div>
+            <div id="fade-aluno" class="hide"></div>
+            <div id="modal-aluno" class="hide">
+                <div id="modal">
+                    <div class="modal-header">
+                    <h2> Cadastro de Aluno </h2>
+                    </div>
+                    <div class="modal-body">
+                        <form action="." method="post">
+                            {{ formAluno|bootstrap }}
+                            <div id="botoes-rodape-modal">
+                            <button id="fechar-modal-aluno" class="botao-fechar botao-rodape">Fechar</button>
+                            <button type="submit" class="botao-cadastrar botao-rodape">Cadastrar Aluno</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 coluna">
+            <div class="titulo-coluna"> <span>Professor</span> </div>
+            <div class="centralizar-botao">
+            <button id="abrir-modal-professor" class="btn btn-primary">Cadastrar</button>
+            <button class="btn btn-primary" onclick="location.href='{% url 'listar_professores' %}'">Consultar</button>
+            </div>
+            <div id="fade-professor" class="hide"></div>
+            <div id="modal-professor" class="hide">
+                <div id="modal">
+                    <div class="modal-header">
+                    <h2> Cadastro de professor </h2>
+                    </div>
+                    <div class="modal-body">
+                        <form action="." method="post">
+                            {{ formProfessor|bootstrap }}
+                            <div id="botoes-rodape-modal">
+                            <button id="fechar-modal-professor" class="botao-fechar botao-rodape">Fechar</button>
+                            <button type="submit" class="botao-cadastrar botao-rodape">Cadastrar Professor</button> 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 coluna">
+                <div class="titulo-coluna"> <span>Curso</span> </div>
+                <div class="centralizar-botao">
+                <button id="abrir-modal-curso" class="btn btn-primary">Cadastrar</button>
+                <button class="btn btn-primary" onclick="location.href='{% url 'listar_cursos' %}'">Consultar</button>
+                </div>
+                <div id="fade-curso" class="hide"></div>
+                <div id="modal-curso" class="hide">
+                    <div id="modal">
+                        <div class="modal-header">
+                            <div> Cadastro de curso </div>
+                        </div>
+                        <div class="modal-body">
+                            <form action="." method="post">
+                                {{ formCurso|bootstrap}}
+                                <div id="botoes-rodape-modal">
+                                    <button id="fechar-modal-curso" class="botao-fechar botao-rodape">Fechar</button>
+                                    <button type="submit" class="botao-cadastrar botao-rodape">Cadastrar curso</button>
+                                </div> 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock %}

@@ -18,7 +18,7 @@ from django.urls import path
 from school_app.views import *
 
 urlpatterns = [
-	path('cadastro/', cadastroHTML, name='cadastro'),
+	path('', home, name='home'),
     path('busca/', buscaGeral, name='busca'),
 	path('admin/', admin.site.urls),
 	path('alunos/', ListarAlunosView.as_view(), name='listar_alunos'),

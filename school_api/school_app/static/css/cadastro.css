@@ -57,6 +57,10 @@ button{
 button:hover{
     opacity: 1;
 }
+.btn{
+    max-height: 3rem;
+    margin: 0 10px;
+}
 #fade-curso{
     position:fixed;
     top: 0;
@@ -85,6 +89,32 @@ button:hover{
     z-index: 5;
 }
 
+.row{
+    height: 30rem;
+    align-items: center;
+    margin-top: 50px;  
+}
+
+.centralizar-botao{
+    margin-top: 9rem;
+    margin-left: 3.4rem;
+}
+.coluna{
+    height: 100%;
+    background-color: rgba(208, 199, 199, 0.419);
+    border: none;
+    border-radius: .9rem;
+}
+.titulo-coluna {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #47589c;
+    font-size: 3rem;
+    border-radius: 1%;
+    margin-top: 2rem;
+  }
+  
 #modal {
     position: fixed;
     left: 50%;

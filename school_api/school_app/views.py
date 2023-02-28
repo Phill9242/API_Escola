@@ -73,12 +73,12 @@ def buscaGeral(request):
 	   return render(request, 'busca.html')
 
 @csrf_exempt
-def cadastroHTML(request):
+def home(request):
 	if (request.method == "GET"):
 		formularioAluno = formAluno()
 		formularioCurso = formCurso()
 		formularioProfessor = formProfessor()
-		return render(request, 'cadastro.html', {'formAluno': formularioAluno, 'formProfessor': formularioProfessor,'formCurso': formularioCurso})
+		return render(request, 'home.html', {'formAluno': formularioAluno, 'formProfessor': formularioProfessor,'formCurso': formularioCurso})
 	if (request.method == "POST"):
 		tipo = request.POST.get('tipo')
 		if tipo == 'aluno':
@@ -155,4 +155,4 @@ def cadastroHTML(request):
 		formularioAluno = formAluno()
 		formularioCurso = formCurso()
 		formularioProfessor = formProfessor()
-		return render(request, 'cadastro.html', {'formAluno': formularioAluno, 'formProfessor': formularioProfessor, 'formCurso': formularioCurso})
+		return render(request, 'home.html', {'formAluno': formularioAluno, 'formProfessor': formularioProfessor, 'formCurso': formularioCurso})
