@@ -8,13 +8,21 @@
 {% endblock %}
 {% block content %}
 {% if messages %}
-    <div class="alert alert-warning">
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    </div>
+  {% for message in messages %}
+    {% if message.tags == 'error' %}
+      <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {% elif message.tags == 'success' %}
+      <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% elif message.tags == 'info' %}
+      <div class="alert alert-warning" role="alert">{{ message }}</div>
+    {% endif %}
+    <script>
+        setTimeout(function() {
+          document.querySelector('.alert').remove();
+        }, 5000); 
+      </script>
+  {% endfor %}
 {% endif %}
-
     <div class="row justify-content-around align-items-center">
         
         <div class="col-md-3 coluna ">

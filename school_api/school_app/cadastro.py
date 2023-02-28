@@ -6,7 +6,8 @@ from django.db import IntegrityError
 def processar_formulario(request):
 	form = checar_tipo_formulario(request)
 	if form == None:
-		messages.error(request, 'Tipo de formulário inválido')
+		messages.info(request, 'Tipo de formulário inválido')
+	return
 
 def checar_tipo_formulario(request):
 	tipo = request.POST.get('tipo')
@@ -37,23 +38,23 @@ def preencher_form_aluno(form, request):
 			aluno.save()
 			messages.success(request, 'Cadastro realizado com sucesso!')
 		except IntegrityError:
-			messages.error(request, 'Já existe um registro com este CPF.')
+			messages.info(request, 'Já existe um registro com este CPF.')
 			pass
-		except Exception:
 			messages.error(request, 'Ocorreu um erro desconhecido no servidor. Por favor, verifique os campos e tente novamente.')
+		except Exception:
 			pass
 	else:
-		messages.error(request, 'Não foi possível fazer o cadastro por conta dos seguintes erros: ')
+		messages.info(request, 'Não foi possível fazer o cadastro por conta dos seguintes erros: ')
 		for x in form.errors:
-			messages.error(request, form.errors[x].as_text())
+			messages.info(request, form.errors[x].as_text())
 	return (form)
 
 def preencher_form_curso(form, request):
 	if form.is_valid():
 		try:
 			curso = Curso(
-			nome=form.cleaned_data['nome'],
-			periodo = form.cleaned_data['periodo']
+			    nome = form.cleaned_data['nome'],
+			    periodo = form.cleaned_data['periodo']
 			)
 			curso.save()
 			messages.success(request, 'Cadastro realizado com sucesso!')
@@ -61,9 +62,9 @@ def preencher_form_curso(form, request):
 			messages.error(request, 'Ocorreu um erro desconhecido no servidor. Por favor, verifique os campos e tente novamente.')
 			pass
 	else:
-		messages.error(request, 'Não foi possível fazer o cadastro por conta dos seguintes erros: ')
+		messages.info(request, 'Não foi possível fazer o cadastro por conta dos seguintes erros: ')
 		for x in form.errors:
-			messages.error(request, form.errors[x].as_text())
+			messages.info(request, form.errors[x].as_text())
 	return (form)
 		
 def preencher_form_professor(form, request):		
@@ -84,13 +85,13 @@ def preencher_form_professor(form, request):
 			professor.save()
 			messages.success(request, 'Cadastro realizado com sucesso!')
 		except IntegrityError:
-			messages.error(request, 'Já existe um registro com este CPF.')
+			messages.info(request, 'Já existe um registro com este CPF.')
 			pass
 		except Exception:
 			messages.error(request, 'Ocorreu um erro desconhecido no servidor. Por favor, verifique os campos e tente novamente.')
 			pass
 	else:
-		messages.error(request, 'Não foi possível fazer o cadastro por conta dos seguintes erros: ')
+		messages.info(request, 'Não foi possível fazer o cadastro por conta dos seguintes erros: ')
 		for x in form.errors:
-			messages.error(request, form.errors[x].as_text())
+			messages.info(request, form.errors[x].as_text())
 	return (form)
