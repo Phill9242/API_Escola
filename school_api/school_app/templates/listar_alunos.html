@@ -14,9 +14,13 @@
             {% csrf_token %}
         <div class="row align-items-center">
             <div class="col-md-8">
-              <span class="fw-bold nome">{{ aluno.nome }} {{ aluno.sobrenome }}</span><br>
-              <medium>Data de Nascimento: {{ aluno.dataNascimento }}</medium>
-              <medium>Data de Matrícula: {{aluno.dataMatricula}}</medium>
+              <span class="fw-bold nome">{{ aluno.nome }} {{ aluno.sobrenome }}</span> <br>
+                <medium>
+                    CPF: {{ aluno.cpf }}  |  Data de Nascimento: {{aluno.dataNascimento}} <br><br>
+                    Telefone: {{aluno.telefone}} |  E-mail: {{aluno.email}} <br>
+                    Endereço:  {{aluno.cidade}}-{{aluno.UF}} | {{aluno.endereco_logradouro}}, {{aluno.endereco_complemento}} <br>
+                    Data de Matrícula: {{aluno.dataMatricula}} |  Número de Matrícula: {{aluno.numeroMatricula}}
+                </medium>
             </div>
             <div class="col-md-4 text-end">
               <a href="{% url 'editar_aluno' aluno.id %}" class="btn btn-primary btn-sm">
@@ -28,11 +32,12 @@
             </div>
         </div>
       </form>
+      <hr>
   </div>
       {% empty %}
-  <div class="col-12">
-      <p>Nenhum aluno encontrado.</p>
-  </div>
+        <div class="col-12">
+            <p>Nenhum aluno encontrado.</p>
+        </div>
       {% endfor %}
 </div>
 {% endblock %}
