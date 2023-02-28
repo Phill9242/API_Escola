@@ -19,7 +19,6 @@ from school_app.views import *
 
 urlpatterns = [
 	path('', home, name='home'),
-    path('busca/', buscaGeral, name='busca'),
 	path('admin/', admin.site.urls),
 	path('alunos/', ListarAlunosView.as_view(), name='listar_alunos'),
 	path('cursos/', ListarCursosView.as_view(), name='listar_cursos'),

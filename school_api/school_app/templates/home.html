@@ -31,6 +31,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="." method="post">
+                            {% csrf_token %} 
                             {{ formAluno|bootstrap }}
                             <div id="botoes-rodape-modal">
                             <button id="fechar-modal-aluno" class="botao-fechar botao-rodape">Fechar</button>
@@ -55,6 +56,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="." method="post">
+                            {% csrf_token %} 
                             {{ formProfessor|bootstrap }}
                             <div id="botoes-rodape-modal">
                             <button id="fechar-modal-professor" class="botao-fechar botao-rodape">Fechar</button>
@@ -79,6 +81,7 @@
                         </div>
                         <div class="modal-body">
                             <form action="." method="post">
+                                {% csrf_token %} 
                                 {{ formCurso|bootstrap}}
                                 <div id="botoes-rodape-modal">
                                     <button id="fechar-modal-curso" class="botao-fechar botao-rodape">Fechar</button>
