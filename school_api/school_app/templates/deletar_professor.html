@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Deletar Professor</h2>
+    <hr>
+    <p>Tem certeza que deseja deletar o professor "{{ professor }}"?</p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Deletar</button>
+      <a href="{% url 'listar_professores' %}" class="btn btn-secondary ml-2">Cancelar</a>
+    </form>
+  </div>
+{% endblock %}

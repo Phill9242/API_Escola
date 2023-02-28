@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Cursos</h2>
+    <hr>
+    <div class="row">
+      {% for curso in cursos %}
+      <div class="col-12 mb-3">
+        <form action="{% url 'deletar_professor' professor.pk %}" method="post">
+          {% csrf_token %}
+          <div class="row align-items-center">
+            <div class="col-8">
+              {{ curso.nome }}
+            </div>
+            <div class="col-4 text-right">
+              <button type="submit" class="btn btn-danger">
+                Deletar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      {% empty %}
+      <div class="col-12">
+        <p>Nenhum professor encontrado.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

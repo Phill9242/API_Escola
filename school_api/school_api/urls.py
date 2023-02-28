@@ -15,14 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from school_app.views import cadastroHTML, ListarAlunosView, listar_cursos, listar_professores, buscaGeral 
+from school_app.views import cadastroHTML, EditarAlunoView, ListarAlunosView, listar_cursos, buscaGeral, DeletarAlunoView, DeletarAlunoView, DeletarProfessorView, ListarProfessorView
 
 urlpatterns = [
 	path('cadastro/', cadastroHTML, name='cadastroHTML'),
 	path('admin/', admin.site.urls),
-	path('listar_alunos/', ListarAlunosView.as_view(), name='listar_alunos'),
+    path('busca/', buscaGeral, name='busca'),
+	path('alunos/', ListarAlunosView.as_view(), name='listar_alunos'),
+	path('professores/', ListarProfessorView.as_view(), name='listar_professores'),
 	path('listar-cursos/', listar_cursos, name='listar_cursos'),
-	path('listar-professores/', listar_professores, name='listar_professores'),
-    path('busca/', buscaGeral, name='busca')
+    path('deletar_aluno/<int:pk>/', DeletarAlunoView.as_view(), name='deletar_aluno'),
+    path('deletar_professor/<int:pk>/', DeletarProfessorView.as_view(), name='deletar_professor'),
+    path('editar_aluno/<int:pk>/', EditarAlunoView.as_view(), name='editar_aluno')
+
 
 ]

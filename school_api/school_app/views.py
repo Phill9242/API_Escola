@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic.list import ListView
+from django.views.generic import ListView, DeleteView, FormView, UpdateView
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .forms import formAluno, formProfessor, formCurso
+from .forms import formAluno, formProfessor, formCurso, EditarAlunoForm
 from .models import Aluno, Curso, Professor
+from django.urls import reverse_lazy
 
 @csrf_exempt
 def listar_alunos(request):
@@ -15,9 +16,25 @@ class ListarAlunosView(ListView):
     template_name = 'listar_alunos.html'
     context_object_name = 'alunos'
 
-    def get_queryset(self):
-        return Aluno.objects.all().values('nome', 'sobrenome', 'dataNascimento')
+class EditarAlunoView(UpdateView):
+    model = Aluno
+    form_class = EditarAlunoForm
+    template_name = 'editar_aluno.html'
+    success_url = reverse_lazy('listar_alunos')
 
+class DeletarAlunoView(DeleteView):
+    model = Aluno
+    success_url = reverse_lazy('listar_alunos')
+
+class ListarProfessorView(ListView):
+    model = Professor
+    template_name = 'listar_professores.html'
+    context_object_name = 'professores'
+    
+class DeletarProfessorView(DeleteView):
+    model = Professor
+    success_url = reverse_lazy('listar_professores')
+    
 def listar_cursos(request):
     cursos = Curso.objects.all()
     return render(request, 'listar_cursos.html', {'cursos': cursos})
@@ -54,8 +71,6 @@ def cadastroHTML(request):
 					dataNascimento=cleaned_data['dataNascimento'],
 					dataMatricula=cleaned_data['dataMatricula'])
 					aluno.save()
-					aluno.cursosMatriculado.set(cleaned_data['cursosMatriculado'])
-					aluno.cursosCompletos.set(cleaned_data['cursosCompletos'])
 				except:
 					pass
 		elif tipo == 'curso':
@@ -81,7 +96,6 @@ def cadastroHTML(request):
 					endereco_numero = cleaned_data['endereco_numero'],
 					dataContratacao=cleaned_data['dataContratacao'])
 					professor.save()
-					professor.cursosLecionados.set(cleaned_data['cursosLecionados'])
 				except:
 					pass
 		formularioAluno = formAluno()
