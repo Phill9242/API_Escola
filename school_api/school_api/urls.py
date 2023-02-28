@@ -15,18 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from school_app.views import cadastroHTML, EditarAlunoView, ListarAlunosView, listar_cursos, buscaGeral, DeletarAlunoView, DeletarAlunoView, DeletarProfessorView, ListarProfessorView
+from school_app.views import *
 
 urlpatterns = [
-	path('cadastro/', cadastroHTML, name='cadastroHTML'),
-	path('admin/', admin.site.urls),
+	path('cadastro/', cadastroHTML, name='cadastro'),
     path('busca/', buscaGeral, name='busca'),
+	path('admin/', admin.site.urls),
 	path('alunos/', ListarAlunosView.as_view(), name='listar_alunos'),
+	path('cursos/', ListarCursosView.as_view(), name='listar_cursos'),
 	path('professores/', ListarProfessorView.as_view(), name='listar_professores'),
-	path('listar-cursos/', listar_cursos, name='listar_cursos'),
     path('deletar_aluno/<int:pk>/', DeletarAlunoView.as_view(), name='deletar_aluno'),
+    path('deletar_curso/<int:pk>/', DeletarCursoView.as_view(), name='deletar_curso'),
     path('deletar_professor/<int:pk>/', DeletarProfessorView.as_view(), name='deletar_professor'),
-    path('editar_aluno/<int:pk>/', EditarAlunoView.as_view(), name='editar_aluno')
-
-
+    path('editar_aluno/<int:pk>/', EditarAlunoView.as_view(), name='editar_aluno'),
+    path('editar_curso/<int:pk>/', EditarCursoView.as_view(), name='editar_curso'),
+    path('editar_professor/<int:pk>/', EditarProfessorView.as_view(), name='editar_professor')
 ]

@@ -1,31 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="container mt-5">
-    <h2>Professores</h2>
-    <hr>
-    <div class="row">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+<div class="container mt-5">
+<h2>Professores</h2>
+<hr>
+<div class="row">
       {% for professor in professores %}
-      <div class="col-12 mb-3">
-        <form action="{% url 'deletar_professor' professor.pk %}" method="post">
-          {% csrf_token %}
-          <div class="row align-items-center">
-            <div class="col-8">
-              {{ professor.nome }} {{ professor.sobrenome }}
+  <div class="col-12 mb-3">
+      <form action="{% url 'deletar_professor' professor.pk %}" method="post">
+            {% csrf_token %}
+        <div class="row align-items-center">
+            <div class="col-md-8">
+              <span class="fw-bold nome">{{ professor.nome }} {{ professor.sobrenome }}</span><br>
+              <medium>Data de Nascimento: {{ professor.dataNascimento }}</medium><br>
+              <Medium> Endereço : {{professor.UF}} {{professor.cidade}} {{professor.endereco_logradouro}} {{professor.endereco_numero}}</Medium> <br>
+              <medium>Data de Contratação: {{ professor.dataContratacao }}</medium><br> 
             </div>
-            <div class="col-4 text-right">
-              <button type="submit" class="btn btn-danger">
-                Deletar
+            <div class="col-md-4 text-end">
+              <a href="{% url 'editar_professor' professor.id %}" class="btn btn-primary btn-sm">
+                      Editar
+              </a>
+              <button type="submit" class="btn btn-danger btn-sm">
+                      Deletar
               </button>
             </div>
-          </div>
-        </form>
-      </div>
-      {% empty %}
-      <div class="col-12">
-        <p>Nenhum professor encontrado.</p>
-      </div>
-      {% endfor %}
-    </div>
+        </div>
+      </form>
   </div>
+      {% empty %}
+  <div class="col-12">
+      <p>Nenhum professor encontrado.</p>
+  </div>
+      {% endfor %}
+</div>
 {% endblock %}
