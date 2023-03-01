@@ -1,12 +1,18 @@
 # API_Escola
 
 ___
-[Objetivos Gerais do Projeto](#Objetivos-gerais-do-projeto).
-[iniciando o Projeto](#iniciando-o-projeto).
+[Objetivos Gerais do Projeto](#objetivos-gerais-do-projeto)
 
-[Cadastro de Aluno](#cadastrando-ou-editando-um-aluno).
-[Cadastro de Curso](#cadastrando-ou-editando-um-curso).
-[Cadastro de Professor](#cadastrando-ou-editando-um-professor).
+[Iniciando o Projeto](#iniciando-o-projeto)
+
+[Utilizando o programa através da infertace de Usuário](#utilizando-o-programa-atraves-da-interface-de-usuario)
+
+[Cadastro de Aluno](#cadastrando-ou-editando-um-aluno)
+
+[Cadastro de Curso](#cadastrando-ou-editando-um-curso)
+
+[Cadastro de Professor](#cadastrando-ou-editando-um-professor)
+
 
 __
 ## Objetivos gerais do projeto:
@@ -29,7 +35,7 @@ Você pode mudar essas configurações acessando o arquivo "API_Escola/school_ap
 Supridos todos os requisitos anteriores, vá até a pasta "API_Escola/school_api/" e execute o comando "python manage.py runserver" para iniciar o servidor.
 
 ___
-## Utilizando o programa através da interface
+## Utilizando o programa através da interface de usuário
 
 #### HOME
 
