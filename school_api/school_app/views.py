@@ -7,12 +7,15 @@ from .cadastro import processar_formulario
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError
+from django.views.decorators.csrf import csrf_exempt
+
+
 
 class ListarAlunosView(ListView):
 	model = Aluno
 	template_name = 'listar_alunos.html'
 	context_object_name = 'alunos'
-
+	
 class EditarAlunoView(UpdateView):
 	model = Aluno
 	form_class = EditarAlunoForm
@@ -51,6 +54,7 @@ class ListarCursosView(ListView):
 	model = Curso
 	template_name = 'listar_cursos.html'
 	context_object_name = 'cursos'
+	
 
 class EditarCursoView(UpdateView):
 	model = Curso
@@ -58,6 +62,7 @@ class EditarCursoView(UpdateView):
 	template_name = 'editar_curso.html'
 	success_url = reverse_lazy('listar_cursos')
 	
+
 class DeletarCursoView(DeleteView):
 	model = Curso
 	success_url = reverse_lazy('listar_cursos')
