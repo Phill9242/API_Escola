@@ -1,6 +1,14 @@
 # API_Escola
 
 ___
+[Objetivos Gerais do Projeto](#Objetivos-gerais-do-projeto).
+[iniciando o Projeto](#iniciando-o-projeto).
+
+[Cadastro de Aluno](#cadastrando-ou-editando-um-aluno).
+[Cadastro de Curso](#cadastrando-ou-editando-um-curso).
+[Cadastro de Professor](#cadastrando-ou-editando-um-professor).
+
+__
 ## Objetivos gerais do projeto:
 
 
