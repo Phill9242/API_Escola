@@ -33,7 +33,7 @@ Você pode mudar essas configurações acessando o arquivo "API_Escola/school_ap
 
 É necessário também que você possua o framework de Django, e também o Django Rest Framework.
 
-Supridos todos os requisitos anteriores, vá até a pasta "API_Escola/school_api/" e execute o comando "python manage.py runserver" para iniciar o servidor.
+Supridos todos os requisitos anteriores, vá até a pasta "API_Escola/school_api/" e execute o comando ```python manage.py runserver``` para iniciar o servidor.
 
 ___
 ## Utilizando o programa através da interface de usuário
