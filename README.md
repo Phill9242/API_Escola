@@ -15,7 +15,7 @@ ___
 
 [Utilizando os Endpoints](#endpoints)
 
-__
+___
 ## Objetivos gerais do projeto:
 
 
