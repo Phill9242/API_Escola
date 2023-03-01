@@ -134,7 +134,7 @@ ___
 ___
 ## Endpoints
 
-A aplicação também disponibiliza 9 (nove) endpoints genéricos para que possa ser utilizada sem a interface:
+A aplicação também disponibiliza 12 (doze) endpoints genéricos para que possa ser utilizada sem a interface:
 
 * Há 3 opções de "listar", que retornarão uma lista no formato JSON, com a opção selecionada, são estes:
 
@@ -193,6 +193,73 @@ Abaixo estão alguns exemplos de JSON que podem ser enviados para fazer uma edi�
 ```
 > **Importante**: O período deve ser um destes 3 possíveis: "noturno", "matutino" ou "vespertino". Caso contrário, uma mensagem de erro será retornada.
 
+
+
+* Aluno :
+```
+    {
+        "nome": "Priscila",
+        "sobrenome": "Silva",
+        "cpf": "000.000.000-00",
+        "email": "priscila@gmail.com",
+        "telefone": "(11)00000-0000",
+        "UF": "SP",
+        "cidade": "São Paulo",
+        "endereco_logradouro": "Rua Alva",
+        "endereco_complemento": "número 12",
+        "dataNascimento": "2000-01-01",
+        "dataMatricula": "2000-01-01",
+        "numeroMatricula": "0000000.0"
+    }
+```
+> **Importante**: O CPF deve estar no formato correto (000.000.000-00), as datas devem estar no formato (AAAA-MM-DD). Para mais informações, consulte a seção de [Cadastro de Aluno](#cadastrando-ou-editando-um-aluno).
+
+
+
+* Professor :
+```
+    {
+        "nome": "Priscila",
+        "sobrenome": "Silva",
+        "cpf": "000.000.000-00",
+        "email": "priscila@gmail.com",
+        "telefone": "(11)00000-0000",
+        "UF": "SP",
+        "cidade": "São Paulo",
+        "endereco_logradouro": "Rua Alva",
+        "endereco_complemento": "número 12",
+        "dataNascimento": "2000-01-01",
+        "dataContratacao": "2000-11-12",
+        "regimeContratacao": "clt"
+    }
+```
+> **Importante**: O CPF deve estar no formato correto (000.000.000-00), as datas devem estar no formato (AAAA-MM-DD). Por fim, o campo "regimeContratacao" precisa ter uma das 3 opções ("clt", "PJ", ou "temporario" Para mais informações, consulte a seção de [Cadastro de Professor](#cadastrando-ou-editando-um-professor).
+
+* Por fim, há 3 opções de "cadastrar", que retornarão uma resposta de acordo com a solicitação, são estes:
+
+  - 'cadastrar-aluno/: faz o registro do JSON passado dentro do banco de dados (Método POST);
+
+  - 'cadastrar-professor/: faz o registro do JSON passado dentro do banco de dados (Método POST);
+
+  - 'cadastrar-curso/: faz o registro do JSON passado dentro do banco de dados (Método POST);
+
+Abaixo está o exemplo de uma solicitação válida e a resposta obtida com o aplicativo "Postman":
+
+![image](https://user-images.githubusercontent.com/85121830/222209782-c3613859-39d9-4586-991b-6ec9c9e2cbb8.png)
+
+Caso o método não seja correto ou haja algo errado no preenchimento, uma mensagem de erro será retornada.
+
+Abaixo estão alguns exemplos de JSON que podem ser enviados para fazer uma edição:
+
+
+* Curso :
+```
+{
+    "nome": "Matemática II",
+    "periodo": "noturno"
+}
+```
+> **Importante**: O período deve ser um destes 3 possíveis: "noturno", "matutino" ou "vespertino". Caso contrário, uma mensagem de erro será retornada.
 
 
 * Aluno :
