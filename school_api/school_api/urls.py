@@ -16,8 +16,6 @@ Including another URLconf
 from django.urls import path
 from school_app.views import *
 from school_app.endpoints import *
-from django.views.decorators.csrf import csrf_exempt
-from django.conf import settings
 
 urlpatterns = [
 	path('', home, name='home'),
@@ -33,8 +31,11 @@ urlpatterns = [
     path('listar-alunos/', AlunoList.as_view()),
     path('listar-cursos/', CursoList.as_view()),
     path('listar-professores/', ProfessorList.as_view()),
+    path('cadastrar-aluno/', AlunoCreate.as_view(), name='aluno_create'),
+    path('cadastrar-curso/', CursoCreate.as_view(), name='curso_create'),
+    path('cadastrar-professor/', ProfessorCreate.as_view(), name='professor_create'),
     path('deletar-aluno/<int:id>/', AlunoDelete.as_view(), name='aluno_delete'),
-    path('deletar-curso/<int:id>/', csrf_exempt(CursoDelete.as_view()), name='curso_delete'),
+    path('deletar-curso/<int:id>/', CursoDelete.as_view(), name='curso_delete'),
     path('deletar-professor/<int:id>/', ProfessorDelete.as_view(), name='professor_delete'),
     path('editar-aluno/<int:id>/', AlunoUpdate.as_view(), name='aluno_update'),
     path('editar-curso/<int:id>/', CursoUpdate.as_view(), name='curso_update'),

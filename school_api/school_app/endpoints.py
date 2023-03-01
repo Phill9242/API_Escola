@@ -107,3 +107,53 @@ class ProfessorUpdate(generics.RetrieveUpdateAPIView):
             return Response({'message': 'Professor atualizado com sucesso!'})
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+class AlunoCreate(generics.CreateAPIView):
+    queryset = Aluno.objects.all()
+    serializer_class = AlunoSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            cpf = serializer.validated_data.get('cpf', None)
+            if cpf:
+                try:
+                    validar_cpf(cpf)
+                except IntegrityError:
+                    return Response({'cpf': 'Já existe um registro com este CPF.'}, status=status.HTTP_400_BAD_REQUEST)
+                except ValidationError as error:
+                    return Response({'cpf': error.message}, status=status.HTTP_400_BAD_REQUEST)
+            serializer.save()
+            return Response({'message': 'Aluno cadastrado com sucesso!'}, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class CursoCreate(generics.CreateAPIView):
+    queryset = Curso.objects.all()
+    serializer_class = CursoSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message': 'Curso cadastrado com sucesso!'}, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ProfessorCreate(generics.CreateAPIView):
+    queryset = Professor.objects.all()
+    serializer_class = ProfessorSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            cpf = serializer.validated_data.get('cpf', None)
+            if cpf:
+                try:
+                    validar_cpf(cpf)
+                except ValidationError as error:
+                    return Response({'cpf': error.message}, status=status.HTTP_400_BAD_REQUEST)
+            serializer.save()
+            return Response({'message': 'Professor cadastrado com sucesso!'}, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
