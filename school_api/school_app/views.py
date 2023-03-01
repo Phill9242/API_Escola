@@ -9,8 +9,6 @@ from django.core.exceptions import ValidationError
 from django.db import IntegrityError
 from django.views.decorators.csrf import csrf_exempt
 
-
-
 class ListarAlunosView(ListView):
 	model = Aluno
 	template_name = 'listar_alunos.html'
