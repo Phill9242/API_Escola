@@ -183,6 +183,7 @@ Caso o método não seja correto, o registro não exista ou o preenchimento de a
 
 Abaixo estão alguns exemplos de JSON que podem ser enviados para fazer uma edição:
 
+
 * Curso :
 ```
 {
@@ -191,6 +192,7 @@ Abaixo estão alguns exemplos de JSON que podem ser enviados para fazer uma edi�
 }
 ```
 > **Importante**: O período deve ser um destes 3 possíveis: "noturno", "matutino" ou "vespertino". Caso contrário, uma mensagem de erro será retornada.
+
 
 
 * Aluno :
@@ -211,6 +213,8 @@ Abaixo estão alguns exemplos de JSON que podem ser enviados para fazer uma edi�
     }
 ```
 > **Importante**: O CPF deve estar no formato correto (000.000.000-00), as datas devem estar no formato (AAAA-MM-DD). Para mais informações, consulte a seção de [Cadastro de Aluno](#cadastrando-ou-editando-um-aluno).
+
+
 
 * Professor :
 ```
