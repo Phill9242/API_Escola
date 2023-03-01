@@ -5,7 +5,7 @@ ___
 
 [Iniciando o Projeto](#iniciando-o-projeto)
 
-[Utilizando o programa através da infertace de Usuário](#utilizando-o-programa-atraves-da-interface-de-usuario)
+[Utilizando o programa através da infertace de Usuário](#utilizando-o-programa-através-da-interface-de-usuário)
 
 [Cadastro de Aluno](#cadastrando-ou-editando-um-aluno)
 
@@ -13,6 +13,7 @@ ___
 
 [Cadastro de Professor](#cadastrando-ou-editando-um-professor)
 
+[Utilizando os Endpoints](#endpoints)
 
 __
 ## Objetivos gerais do projeto:
@@ -143,7 +144,7 @@ ___
 
 * Nome: um campo que recebe até 100 caracteres;
 
-* Período: Um campo para escolher entre 3 opções pré-selecionadas dentro do modelo "radio select
+* Período: Um campo para escolher entre 3 opções pré-selecionadas dentro do modelo "radio select".
 
 ___
 ## Endpoints
