@@ -245,7 +245,7 @@ Abaixo estão alguns exemplos de JSON que podem ser enviados para fazer uma edi�
 
 Abaixo está o exemplo de uma solicitação válida e a resposta obtida com o aplicativo "Postman":
 
-![image](https://user-images.githubusercontent.com/85121830/222209782-c3613859-39d9-4586-991b-6ec9c9e2cbb8.png)
+![image](https://user-images.githubusercontent.com/85121830/222210953-3531266a-1ad4-4e8d-8b71-46104a89a2cb.png)
 
 Caso o método não seja correto ou haja algo errado no preenchimento, uma mensagem de erro será retornada.
 
